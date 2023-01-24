@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="style.css">
+
+  <script src="main.js"></script>
+
+  <title>riceball incremental</title>
+</head>
+<body>
+  <div class="main">
+    <p>you have <span id="rice">0</span> bowls of rice</p>
+    <p class="small">(you are gaining <span id="ricepersecond"></span> bowl of rice per second)</p>
+    <p>you have <span id="riceballs">0</span> riceballs</p>
+    <button class="coolButton" onclick="makeRiceballs()">make riceballs (1 bowl of rice)</button>
+    <button class="coolButton" onclick="buyMoreRPS()">get more rice per seconds (<span id="morericepersecondprice">10</span> riceballs)</button>
+  </div>
+</body>
+</html>
