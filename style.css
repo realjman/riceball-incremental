@@ -1,6 +1,7 @@
 body {
   background-color: grey;
   text-align: center;
+  user-select: none;
 }
 
 .main {
@@ -14,8 +15,62 @@ body {
   font-weight: bold;
 }
 
-.coolButton {
+.buttons {
   border-radius: 7px;
   background-color: darkgrey;
   font-family:cursive;
+  width: fit-content;
+  margin: auto;
+}
+
+.button {
+  border-radius: 7px;
+  background-color: darkgrey;
+  font-family:cursive;
+  margin: 5px;
+}
+
+.button:hover {
+  transform: scale(1.1);
+  transition: ease-out;
+  transition-duration: .44s;
+  background-color: grey;
+}
+
+.button:active {
+  transform: scale(0.7);
+  background-color: black;
+}
+
+.tablinks {
+  font-size: 25px;
+  font-weight: bold;
+  background-color: white;
+  font-family:cursive;
+  color: black;
+  width: fit-content;
+  border-color: white;
+  border-radius: 4px;
+  border-style: solid;
+  margin: auto;
+}
+
+.tablinks:hover {
+  color: grey;
+  transform: scale(1.1);
+}
+
+.tablinks:active {
+  color: white;
+  background-color: grey;
+  transform: scale(0.9);
+  transition-duration: .7s;
+}
+
+.tabcontent {
+  display: none
+}
+
+.text {
+  font-weight: normal;
 }

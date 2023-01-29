@@ -3,16 +3,18 @@ let player = {
   riceballs: 0,
   ricepersecond: 1,
   morericepersecondprice: 10,
+  riceballsperclick: 1,
+  morericeballsperclickprice: 50,
 }
 
 function gainRice() {
-  player.rice = player.rice + player.ricepersecond
+  player.rice = player.rice + (player.ricepersecond / 100)
 }
 
 function makeRiceballs() {
-  if (player.rice > 0) {
-    player.rice = player.rice - 1
-    player.riceballs = player.riceballs + 1
+  if (player.rice >= player.riceballsperclick) {
+    player.rice = player.rice - player.riceballsperclick
+    player.riceballs = player.riceballs + player.riceballsperclick
   }
   else {
     alert("not enough rice")
@@ -30,14 +32,27 @@ function buyMoreRPS() {
   }
 }
 
+function buyMoreRBPC() {
+  if (player.riceballs >= player.morericeballsperclickprice) {
+    player.riceballs = player.riceballs - player.morericeballsperclickprice
+    player.riceballsperclick = player.riceballsperclick + 1
+    player.morericeballsperclickprice = player.morericeballsperclickprice * 1.25
+  }
+  else {
+    alert("not enough riceballs")
+  }
+}
+
 
 var gameLoop = window.setInterval(function () {
   gainRice()
-}, 1000)
+}, 10)
 
 var dataLoop = window.setInterval(function () {
-  document.getElementById("rice").innerHTML = player.rice
-  document.getElementById("riceballs").innerHTML = player.riceballs
+  document.getElementById("rice").innerHTML = player.rice.toFixed(1)
+  document.getElementById("riceballs").innerHTML = player.riceballs.toFixed()
   document.getElementById("ricepersecond").innerHTML = player.ricepersecond
-  document.getElementById("morericepersecondprice").innerHTML = player.morericepersecondprice
+  document.getElementById("morericepersecondprice").innerHTML = player.morericepersecondprice.toFixed()
+  document.getElementById("riceballsperclick").innerHTML = player.riceballsperclick.toFixed()
+  document.getElementById("morericeballsperclickprice").innerHTML = player.morericeballsperclickprice.toFixed()
 }, 1)
