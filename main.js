@@ -17,7 +17,10 @@ function makeRiceballs() {
     player.riceballs = player.riceballs + player.riceballsperclick
   }
   else {
-    alert("not enough rice")
+    document.getElementById("error").innerHTML = "you dont have enough rice"
+    setTimeout(function() {
+      document.getElementById("error").innerHTML = ""
+    }, 2000)
   }
 }
 
@@ -28,7 +31,10 @@ function buyMoreRPS() {
     player.morericepersecondprice = player.morericepersecondprice * 1.5
   }
   else {
-    alert("not enough riceballs")
+    document.getElementById("error").innerHTML = "you dont have enough riceballs"
+    setTimeout(function() {
+      document.getElementById("error").innerHTML = ""
+    }, 2000)
   }
 }
 
@@ -39,7 +45,10 @@ function buyMoreRBPC() {
     player.morericeballsperclickprice = player.morericeballsperclickprice * 1.25
   }
   else {
-    alert("not enough riceballs")
+    document.getElementById("error").innerHTML = "you dont have enough riceballs"
+    setTimeout(function() {
+      document.getElementById("error").innerHTML = ""
+    }, 2000)
   }
 }
 

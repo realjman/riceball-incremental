@@ -74,3 +74,13 @@ body {
 .text {
   font-weight: normal;
 }
+
+.warning {
+  color: red;
+  font-size: 30px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.error {
+  font-size: 15px;
+}

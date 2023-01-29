@@ -20,6 +20,7 @@
     <div class="buttons">
       <div class="riceballbutton">
         <button class="button" onclick="makeRiceballs()">make riceballs (<span id="riceballsperclick">1</span> riceballs per click)</button>
+        <p id="error" class="error"></p>
       </div>
       <button class="tablinks" onclick="openTab(event, 'Upgrades')" id="defaultOpen">Upgrades</button>
       <button class="tablinks" onclick="openTab(event, 'Info')">Update Logs</button>
@@ -34,10 +35,13 @@
           v0.0<br>
           game made as a joke<br>
           v0.1<br>
-          new upgrades aswell as tabs
+          new upgrades aswell as tabs<br>
+          v0.1.1<br>
+          added some stuff
         </p>
       </div>
     </div>
+  <p class="warning">GAME DOES NOT SAVE</p>
   </div>
   <script>
     document.getElementById("defaultOpen").click();
