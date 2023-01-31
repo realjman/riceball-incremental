@@ -5,10 +5,12 @@ let player = {
   morericepersecondprice: 10,
   riceballsperclick: 1,
   morericeballsperclickprice: 50,
+  doubleRPSPrice: 100,
+  doubleRPS: 0,
 }
 
 function gainRice() {
-  player.rice = player.rice + (player.ricepersecond / 100)
+  player.rice = player.rice + ((player.ricepersecond / 100) * (2 ** player.doubleRPS))
 }
 
 function makeRiceballs() {
@@ -52,16 +54,30 @@ function buyMoreRBPC() {
   }
 }
 
+function buyDoubleRPS() {
+  if (player.riceballs >= player.doubleRPSPrice) {
+    player.riceballs -= player.doubleRPSPrice
+    player.doubleRPS += 1
+    player.doubleRPSPrice *= 10
+  }
+  else {
+    document.getElementById("error").innerHTML = "you dont have enough riceballs"
+    setTimeout(function() {
+      document.getElementById("error").innerHTML = ""
+    }, 2000)
+  }
+}
 
 var gameLoop = window.setInterval(function () {
   gainRice()
 }, 10)
 
 var dataLoop = window.setInterval(function () {
-  document.getElementById("rice").innerHTML = player.rice.toFixed(1)
-  document.getElementById("riceballs").innerHTML = player.riceballs.toFixed()
-  document.getElementById("ricepersecond").innerHTML = player.ricepersecond
-  document.getElementById("morericepersecondprice").innerHTML = player.morericepersecondprice.toFixed()
-  document.getElementById("riceballsperclick").innerHTML = player.riceballsperclick.toFixed()
-  document.getElementById("morericeballsperclickprice").innerHTML = player.morericeballsperclickprice.toFixed()
+  document.getElementById("rice").innerHTML = format(player.rice)
+  document.getElementById("riceballs").innerHTML = format(player.riceballs)
+  document.getElementById("ricepersecond").innerHTML = format(player.ricepersecond)
+  document.getElementById("morericepersecondprice").innerHTML = format(player.morericepersecondprice)
+  document.getElementById("riceballsperclick").innerHTML = format(player.riceballsperclick)
+  document.getElementById("morericeballsperclickprice").innerHTML = format(player.morericeballsperclickprice)
+  document.getElementById("doubleRPSPrice").innerHTML = format(player.doubleRPSPrice)
 }, 1)
